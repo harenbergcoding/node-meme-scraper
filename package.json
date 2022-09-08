@@ -43,6 +43,8 @@
     "@typescript-eslint/utils": "5.36.2"
   },
   "dependencies": {
-    "node-fetch": "2"
+    "cheerio": "^1.0.0-rc.12",
+    "node-fetch": "^3.2.10",
+    "string": "^3.3.3"
   }
 }
