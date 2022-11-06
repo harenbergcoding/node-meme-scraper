@@ -31,7 +31,7 @@ for (let i = 0; i < 10; i++) {
 const pathEnd = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'];
 
 // create non existing path
-const path = `./memes/${pathEnd}.jpg`;
+const path = `./memes/${pathEnd}[i].jpg`;
 
 // Creates /memes folder
 fs.mkdir('./memes', { recursive: true }, (err) => {
@@ -39,6 +39,24 @@ fs.mkdir('./memes', { recursive: true }, (err) => {
 });
 
 // Download url to folder
+
+const download = (imageUrlFirst10, path, callback) => {
+  request.head(imageUrlFirst10, () => {
+    request(imageUrlFirst10)
+      .pipe(fs.createWriteStream(path))
+      .on('close', callback);
+  });
+};
+
+download(imageUrlFirst10, path, () => {
+  console.log('Quak!');
+});
+
+//   } else {
+//     console.log('Request not fulfilled.');
+//   }
+// },
+// );
 
 // fs.createWriteStream(imageUrlFirst10[0]);
 
